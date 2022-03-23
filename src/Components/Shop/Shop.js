@@ -4,21 +4,32 @@ import './Shop.css'
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([])
     useEffect(() => {
         fetch('fakeData/products.json')
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [products])
+    }, [])
     // console.log(products);
+    //Creacting function to handle the button in product.js
+    const handleAdToCart = props => {
+        const newCart = [...cart, props]
+        setCart(newCart)
+    }
+    console.log(cart);
     return (
         <div className='shop-section'>
             <div className="products-section">
                 {
-                    products.map(product => <Product key={product.id} product = {product}></Product>)
+                    products.map(product => <Product key={product.id} product={product} handleAdToCart={handleAdToCart}></Product>)
                 }
             </div>
             <div className="cart-section">
-                <h1>cart</h1>
+                <h1 className='cart-header'>Order Summery</h1>
+                <div className="cart-selected-info">
+                    <p>Selected Items: { cart.length }</p>
+                    <p>Total Price: { cart.length }</p>
+                </div>
             </div>
         </div>
     );
