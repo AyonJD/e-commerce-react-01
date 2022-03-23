@@ -1,8 +1,10 @@
 .cart-data{
     padding: 0 10px;
+    position: sticky;
+    top: 0;
 }
 .cart-inner{
-    margin-top: 68px;
+    margin-top: 53px;
 }
 .grandTotal{
     font-style: normal;
@@ -16,4 +18,5 @@
     font-weight: 400;
     font-size: 25px;
     line-height: 30px;
+    padding-top: 15px;
 }
