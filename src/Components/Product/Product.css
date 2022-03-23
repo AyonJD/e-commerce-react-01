@@ -1,0 +1,65 @@
+.product-card{
+    width: 300px;
+    height: 508px;
+    border: 1px solid red;
+    position: relative;
+}
+.image{
+    display: flex;
+    justify-content: center;
+}
+.product-card img{
+    height: 286px;
+    width: 286px;
+}
+.product-card h2{
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+    text-align: left;
+}
+.product-card h3{
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.0015em;
+    text-align: left;
+}
+.product-card p{
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.004em;
+    text-align: left;
+    color: #2A414F;
+}
+.button{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.cart-btn{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    color: #0E161A;
+    cursor: pointer;
+}
+.cart-btn .btn-text{
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.0125em;
+    text-align: left;
+    
+}
+.cart-btn .icon{
+    font-size: 17px;
+    padding: 0 4px;
+}
