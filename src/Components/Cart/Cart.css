@@ -1,0 +1,19 @@
+.cart-data{
+    padding: 0 10px;
+}
+.cart-inner{
+    margin-top: 68px;
+}
+.grandTotal{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+}
+.cart-header{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+}
