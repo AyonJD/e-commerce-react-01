@@ -9,12 +9,16 @@ const Product = ({product}) => {
     return (
         <div className='product-card'>
             <div className="image">
-                <img src={img} alt="" />
+                    <img src={img} alt="" />
+                </div>
+            <div className="card-content">
+                <h2>{name}</h2>
+                <h3>Price: ${price}</h3>
+                <div className="paagraph">
+                    <p className='product-card-seller'>Manuacturer: {seller}</p>
+                    <p>Rting: {ratings} stars</p>
+                </div>
             </div>
-            <h2>{name}</h2>
-            <h3>Price: ${price}</h3>
-            <p>Manuacturer: {seller}</p>
-            <p>Rting: {ratings} stars</p>
             <div className="button">
                 <button className='cart-btn'><p className='btn-text'>Add to Cart</p><FontAwesomeIcon className='icon' icon={faCartPlus} /></button>
             </div>

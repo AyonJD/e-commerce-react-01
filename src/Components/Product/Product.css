@@ -1,8 +1,10 @@
 .product-card{
     width: 300px;
     height: 508px;
-    border: 1px solid red;
     position: relative;
+    border: 1px solid #95A0A7;
+    box-sizing: border-box;
+    border-radius: 8px;
 }
 .image{
     display: flex;
@@ -11,6 +13,12 @@
 .product-card img{
     height: 286px;
     width: 286px;
+    border-radius: 8px;
+    margin: 0 8px;
+    margin-top: 8px;
+}
+.card-content{
+    padding: 0 14px;
 }
 .product-card h2{
     font-size: 21px;
@@ -19,6 +27,7 @@
     line-height: 25px;
     letter-spacing: 0.0015em;
     text-align: left;
+    margin: 12px 0;
 }
 .product-card h3{
     font-size: 17px;
@@ -27,6 +36,7 @@
     line-height: 20px;
     letter-spacing: 0.0015em;
     text-align: left;
+    margin: 0;
 }
 .product-card p{
     font-size: 12px;
@@ -36,6 +46,10 @@
     letter-spacing: 0.004em;
     text-align: left;
     color: #2A414F;
+}
+.product-card-seller{
+    margin-top: px;
+    margin-bottom: 12px;
 }
 .button{
     position: absolute;
@@ -49,6 +63,19 @@
     justify-content: center;
     color: #0E161A;
     cursor: pointer;
+    background-color: #FFE0B3;
+    border: 0;
+    border-radius: 0 0 8px 8px;
+    transition: .2s ease-in-out;
+}
+.cart-btn p{
+    transition: .2s ease-in-out;
+}
+.product-card:hover .cart-btn,
+.product-card:hover .cart-btn p
+{
+    background-color: orange;
+    color: #fff;
 }
 .cart-btn .btn-text{
     font-size: 15px;

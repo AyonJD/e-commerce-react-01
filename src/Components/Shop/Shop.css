@@ -6,4 +6,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 45px;
+    padding: 0 80px;
+    margin: 120px 0;
 }
