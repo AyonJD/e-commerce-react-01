@@ -34,11 +34,15 @@ const Shop = () => {
         //Solve, cart was not updating quantity
         let newCart = [];
         const exists = cart.find(product => product.id === props.id);
+        //exists = undefined
+        //or
+        //exists = {props};
         if (!exists) {
             props.quantity = 1;
             newCart = [...cart, props];
         } else {
             const rest = cart.filter(product => product.id !== props.id);
+            //rest = [{},{}]
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
         }
