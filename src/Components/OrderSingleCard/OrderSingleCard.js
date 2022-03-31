@@ -3,9 +3,9 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import './OrderSingleCard.css'
 
-const OrderSingleCard = ({singleProduct}) => {
-    console.log(singleProduct);
-    const { img, name, price, quantity } = singleProduct;
+const OrderSingleCard = ({ singleProduct,  removeFromOrder }) => {
+    
+    const { img, name, price, quantity, id } = singleProduct;
     return (
         <div className='order-border'>
             <img className='order-image' src={img} alt="" />
@@ -15,7 +15,7 @@ const OrderSingleCard = ({singleProduct}) => {
                     <p>Price: ${ price }</p>
                     <p>Quantity: { quantity }</p>
                 </div>
-                <FontAwesomeIcon className='order-delete-icon' icon={faTrashAlt} />
+                <FontAwesomeIcon onClick={() => removeFromOrder(id)} className='order-delete-icon' icon={faTrashAlt} />
             </div>
         </div>
     );
