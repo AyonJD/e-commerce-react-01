@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../Images/Logo.svg'
 import './Navbar.css'
 
@@ -11,13 +12,13 @@ const Navbar = () => {
             <div className="menu-section">
                 <ul className='menu-items'>
                     <li>
-                        <a href="#">Order</a>
+                        <Link to="/">Shop</Link>
                     </li>
                     <li>
-                        <a href="#">Order Review</a>
+                        <Link to="/order-review">Order Review</Link>
                     </li>
                     <li>
-                        <a href="#">Manage Inventory</a>
+                        <Link to="/inventory">Manage Inventory</Link>
                     </li>
                 </ul>
             </div>
