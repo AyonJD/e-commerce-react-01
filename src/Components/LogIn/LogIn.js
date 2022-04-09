@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './SignUp.css'
+import { Link } from 'react-router-dom';
 import googleLogo from '../../Assets/google.svg'
 
-const SignUp = () => {
+const LogIn = () => {
     return (
         <div>
             <form className='form'>
-                <h2 className='form-header'>Sign Up</h2>
+                <h2 className='form-header'>Log In</h2>
                 <div className="form-group">
                     <div className='input-div'>
                         <label htmlFor="email">Email</label>
@@ -17,14 +16,10 @@ const SignUp = () => {
                         <label htmlFor="password">Password</label>
                         <input type="password" name="password" id="" />
                     </div>
-                    <div className='input-div'>
-                        <label htmlFor="conformPassword">Confirm password</label>
-                        <input type="password" name="conformPassword" id="" />
-                    </div>
                 </div>
                 <div className="button-group">
                     <button className='submit-button'>Sign Up</button>
-                    <p>Already have an account? <Link className='form-redirect' to="/login">Login Here</Link></p>
+                    <p>New to Ema-John? <Link className='form-redirect' to="/sign-up">Join Now</Link></p>
                 </div>
                 <p className='form-devider'>or</p>
                 <div className="button-group">
@@ -35,4 +30,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default LogIn;
