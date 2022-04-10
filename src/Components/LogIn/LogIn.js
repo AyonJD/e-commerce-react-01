@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../../Assets/google.svg'
 import auth from '../../firebase.init';
@@ -13,7 +13,10 @@ const LogIn = () => {
     const navigate = useNavigate()
     const [
         signInWithEmailAndPassword
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    
     const from = location.state?.from?.pathname || '/';
     if (user) {
         navigate(from, {replace: true})
@@ -21,6 +24,9 @@ const LogIn = () => {
     const handlelogin = event => {
         event.preventDefault();
         signInWithEmailAndPassword(email, password)
+    }
+    const handleSignInWIthGoogle = () => {
+        signInWithGoogle()
     }
     return (
         <div>
@@ -42,7 +48,7 @@ const LogIn = () => {
                 </div>
                 <p className='form-devider'>or</p>
                 <div className="button-group">
-                    <button className='google-button'><img src={googleLogo} alt="" /><p>Continue with Google</p></button>
+                    <button onClick={handleSignInWIthGoogle} className='google-button'><img src={googleLogo} alt="" /><p>Continue with Google</p></button>
                 </div>
             </form>
         </div>
