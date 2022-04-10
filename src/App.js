@@ -4,6 +4,7 @@ import CheckOut from './Components/CheckOut/CheckOut';
 import LogIn from './Components/LogIn/LogIn';
 import Navbar from './Components/Navbar/Navbar';
 import Order from './Components/Order/Order';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
 import Shop from './Components/Shop/Shop';
 import SignUp from './Components/SignUp/SignUp';
 
@@ -16,7 +17,11 @@ function App() {
         <Route path='/order-review' element={<Order></Order>}></Route>
         <Route path='/sign-up' element={<SignUp></SignUp>}></Route>
         <Route path='/login' element={<LogIn></LogIn>}></Route>
-        <Route path='/checkout' element={<CheckOut></CheckOut>}></Route>
+        <Route path='/checkout' element={
+          <RequireAuth>
+            <CheckOut></CheckOut>
+          </RequireAuth>
+        }></Route>
       </Routes>
     </div>
   );

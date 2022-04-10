@@ -1,8 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../../Assets/google.svg'
+import auth from '../../firebase.init';
 
 const LogIn = () => {
+    // Redirect to the last page user visited
+    const [user] = useAuthState(auth);
+    const location = useLocation();
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/';
+    if (user) {
+        navigate(from, {replace: true})
+    }
     return (
         <div>
             <form className='form'>
