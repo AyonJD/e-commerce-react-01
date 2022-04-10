@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './SignUp.css'
 import googleLogo from '../../Assets/google.svg'
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import useInput from '../Hooks/useInput';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,26 +14,31 @@ const SignUp = () => {
     const [
         createUserWithEmailAndPassword
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
     const location = useLocation();
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/';
-    
-    
+
+
     const handleSubmitForm = event => {
         event.preventDefault();
         if (password !== confirmPassword) {
             toast.error("Password doesn't match!", {
                 toastId: "passWrong"
-              });
+            });
             return;
         }
         createUserWithEmailAndPassword(email, password)
-        if (user) {
-            toast.success("Wooo! Sign Up successful", {
-                toastId: "signUpSuccess"
-            });
-            navigate(from, {replace: true})
-        }
+    }
+    const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+    }
+    // Redirect to the previous visited page after sign up
+    if (user) {
+        toast.success("Wooo! Sign Up successful", {
+            toastId: "signUpSuccess"
+        });
+        navigate(from, { replace: true })
     }
     return (
         <div>
@@ -54,12 +59,12 @@ const SignUp = () => {
                     </div>
                 </div>
                 <div className="button-group">
-                    <button className='submit-button'>Sign Up</button>
+                    <button type='submit' className='submit-button'>Sign Up</button>
                     <p>Already have an account? <Link className='form-redirect' to="/login">Login Here</Link></p>
                 </div>
                 <p className='form-devider'>or</p>
                 <div className="button-group">
-                    <button className='google-button'><img src={googleLogo} alt="" /><p>Continue with Google</p></button>
+                    <button onClick={handleSignInWithGoogle} className='google-button'><img src={googleLogo} alt="" /><p>Continue with Google</p></button>
                 </div>
             </form>
         </div>
