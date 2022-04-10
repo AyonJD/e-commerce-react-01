@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import CheckOut from './Components/CheckOut/CheckOut';
 import LogIn from './Components/LogIn/LogIn';
@@ -23,6 +24,7 @@ function App() {
           </RequireAuth>
         }></Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
