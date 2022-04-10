@@ -18,7 +18,7 @@ const LogIn = () => {
                     </div>
                 </div>
                 <div className="button-group">
-                    <button className='submit-button'>Sign Up</button>
+                    <button className='submit-button'>Log In</button>
                     <p>New to Ema-John? <Link className='form-redirect' to="/sign-up">Join Now</Link></p>
                 </div>
                 <p className='form-devider'>or</p>

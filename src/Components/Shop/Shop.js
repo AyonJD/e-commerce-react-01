@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { addToDb, getStoredCart } from '../../fakedb';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/useCart';
@@ -6,6 +7,7 @@ import Product from '../Product/Product';
 import './Shop.css'
 
 const Shop = () => {
+    const navigate = useNavigate()
     //Custom hook-- To fetch data
     const [products, setProducts] = useProducts();
     //Custom hook-- To getting data from local storage
@@ -41,7 +43,9 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-section">
-                    <Cart cart={ cart }></Cart>
+                <Cart cart={cart}>
+                <button onClick={() => navigate('/order-review')} className='cart-button'>Go to Cart</button>
+                    </Cart>
             </div>
         </div>
     );

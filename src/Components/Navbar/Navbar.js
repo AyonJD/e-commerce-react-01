@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <div className='nav'>
             <div className="logo-section">
-                <img src={ logo } alt="" />
+            <Link to="/"><img src={ logo } alt="" /></Link>
             </div>
             <div className="menu-section">
                 <ul className='menu-items'>
@@ -21,7 +21,7 @@ const Navbar = () => {
                         <Link to="/inventory">Manage Inventory</Link>
                     </li>
                     <li>
-                        <Link to="/sign-up">Sign Up</Link>
+                        <Link to="/login">Log In</Link>
                     </li>
                 </ul>
             </div>

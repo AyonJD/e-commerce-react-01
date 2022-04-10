@@ -1,6 +1,7 @@
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Product.css'
 
 const Product = (props) => {
@@ -8,8 +9,8 @@ const Product = (props) => {
     return (
         <div className='product-card'>
             <div className="image">
-                    <img src={img} alt="" />
-                </div>
+                <img src={img} alt="" />
+            </div>
             <div className="card-content">
                 <h2>{name}</h2>
                 <h3>Price: ${price}</h3>
@@ -19,7 +20,7 @@ const Product = (props) => {
                 </div>
             </div>
             <div className="button">
-                <button onClick={()=>{props.handleAdToCart(props.product)}} className='cart-btn'><p className='btn-text'>Add to Cart</p><FontAwesomeIcon className='icon' icon={faCartPlus} /></button>
+                <button onClick={() => { props.handleAdToCart(props.product) }} className='cart-btn'><p className='btn-text'>Add to Cart</p><FontAwesomeIcon className='icon' icon={faCartPlus} /></button>
             </div>
         </div>
     );

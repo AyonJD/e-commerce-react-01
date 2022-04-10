@@ -20,3 +20,17 @@
     line-height: 30px;
     padding-top: 15px;
 }
+.cart-button{
+    width: 100%;
+    background-color: #FFA500;
+    border: 1px solid #95A0A7;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #fff;
+    font-weight: 600;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+.cart-button:hover{
+    background-color: #ac7000;
+}
