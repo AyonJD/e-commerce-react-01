@@ -1,33 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../../Assets/google.svg'
 import auth from '../../firebase.init';
 import useInput from '../Hooks/useInput';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LogIn = () => {
     // Redirect to the last page user visited
     const [user] = useAuthState(auth);
-    const {email, password, getEmail, getPassword} = useInput()
+    const { email, password, getEmail, getPassword } = useInput()
     const location = useLocation();
     const navigate = useNavigate()
+    // useEffect
     const [
-        signInWithEmailAndPassword
+        signInWithEmailAndPassword, , , error
     ] = useSignInWithEmailAndPassword(auth);
 
     const [signInWithGoogle] = useSignInWithGoogle(auth);
-    
+
     const from = location.state?.from?.pathname || '/';
     if (user) {
-        navigate(from, {replace: true})
+        navigate(from, { replace: true })
     }
     const handlelogin = event => {
         event.preventDefault();
+        // console.log(email, password);
+        
         signInWithEmailAndPassword(email, password)
+        
     }
+    useEffect(() => {
+        console.log(error)
+        if (error) {
+            toast.error("Wrong email or password!", {
+                toastId: "passWrong"
+            });
+            return;
+        }
+    }, [error])
     const handleSignInWIthGoogle = () => {
         signInWithGoogle()
     }
+    // console.log(error);
     return (
         <div>
             <form onSubmit={handlelogin} className='form'>
@@ -43,7 +59,7 @@ const LogIn = () => {
                     </div>
                 </div>
                 <div className="button-group">
-                    <button className='submit-button'>Log In</button>
+                    <button type='submit' className='submit-button'>Log In</button>
                     <p>New to Ema-John? <Link className='form-redirect' to="/sign-up">Join Now</Link></p>
                 </div>
                 <p className='form-devider'>or</p>

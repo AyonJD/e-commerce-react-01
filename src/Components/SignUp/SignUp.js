@@ -12,7 +12,7 @@ const SignUp = () => {
     const [user] = useAuthState(auth)
     const { email, password, confirmPassword, getEmail, getPassword, getConfirmPassword } = useInput();
     const [
-        createUserWithEmailAndPassword,,,error
+        createUserWithEmailAndPassword, , , error
     ] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle] = useSignInWithGoogle(auth);
     const location = useLocation();
@@ -28,8 +28,10 @@ const SignUp = () => {
             });
             return;
         }
-
-        if (error === undefined || error.include('email-already-in-use')) {
+        
+        console.log(error);
+        //Prevent users to use same email for multiple sign up
+        if (error) {
             toast.error("User already exists with this email!", {
                 toastId: "emailIsInUse"
             });
@@ -39,7 +41,7 @@ const SignUp = () => {
     }
     const handleSignInWithGoogle = () => {
         signInWithGoogle()
-        
+
     }
     // Redirect to the previous visited page after sign up
     if (user) {
